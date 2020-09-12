@@ -41,20 +41,79 @@
 				</form>
 			</div>
 		</nav>
+		<section class="my-5">
+			<div class="container-fluid">
+				<h1 class="text-center mb-3 text-grey">Data Jumlah Covid-19</h1>
+				<div class="row">
+					<div class="col-md-4">
+						<div class="card text-white mx-auto bg-danger mb-3" style="max-width: 18rem;">
+						  <div class="card-header">Jumlah Orang Positif</div>
+						  <div class="card-body">
+						    <h5 class="card-title"><?php echo $total_postif; ?></h5>
+						  </div>
+						</div>
+					</div>
+					<div class="col-md-4">
+						<div class="card text-white mx-auto bg-success mb-3" style="max-width: 18rem;">
+						  <div class="card-header">Jumlah Orang Sembuh</div>
+						  <div class="card-body">
+						    <h5 class="card-title"><?php echo $total_sembuh; ?></h5>
+						  </div>
+						</div>
+					</div>
+					<div class="col-md-4">
+						<div class="card text-white mx-auto bg-dark mb-3" style="max-width: 18rem;">
+						  <div class="card-header">Jumlah Orang Meninggal</div>
+						  <div class="card-body">
+						    <h5 class="card-title"><?php echo $total_meninggal; ?></h5>
+						  </div>
+						</div>
+					</div>
+				</div>
+				
+			</div>
+		</section>
 		<section>
 			<div class="container-fluid">
-				<div class="row text-center">
-					<div class="col-md-4">positif : <?php echo $total_postif; ?></div>
-					<div class="col-md-4">sembuh : <?php echo $total_sembuh; ?></div>
-					<div class="col-md-4">meninggal : <?php echo $total_meninggal; ?></div>
-				</div>
 				<div class="row">
-					<div class="col-md-6">
-						<canvas id="myChart"></canvas>
+					<div class="col-md-12">
+						<div class="table-responsive">
+							<table class="table">
+								<thead>
+									<tr>
+										<td>No</td>
+										<td>Nama Provinsi</td>
+										<td>Kasus Positif</td>
+										<td>Kasus Sembuh</td>
+										<td>Kasus Meninggal</td>
+									</tr>
+								</thead>
+								<tbody>
+									<?php  
+										$nomor = 1;
+										foreach ($data_corona->features as $see):
+									?>
+									<tr>
+										<td><?php echo $nomor++ ?></td>
+										<td><?php echo $see->attributes->Provinsi ?></td>
+										<td class="text-danger"><?php echo $see->attributes->Kasus_Posi ?></td>
+										<td class="text-success"><?php echo $see->attributes->Kasus_Semb ?></td>
+										<td class="text-dark"><?php echo $see->attributes->Kasus_Meni ?></td>
+									</tr>
+									<?php endforeach ?>
+								</tbody>
+							</table>
+						</div>
 					</div>
 				</div>
 			</div>
 		</section>
+
+		<!-- <div class="row">
+					<div class="col-md-6">
+						<canvas id="myChart"></canvas>
+					</div>
+				</div> -->
 		<pre>
 			<?php var_dump($statistik[0]) ?>
 		</pre>
