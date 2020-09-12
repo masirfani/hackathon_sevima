@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>Document</title>
+		<title>FYI Covid-19</title>
 		<link rel="stylesheet" href="<?php echo base_url("assets/bootstrap_4/css/bootstrap.min.css") ?>">
 		<link rel="stylesheet" href="//cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css">
 	</head>
@@ -18,19 +18,19 @@
 					<li class="nav-item active">
 						<a class="nav-link" href="#home">Home <span class="sr-only">(current)</span></a>
 					</li>
-					<li class="nav-item">
+					<li class="nav-item active">
 						<a class="nav-link" href="#kasus">Jumlah Kasus</a>
 					</li>
-					<li class="nav-item">
+					<li class="nav-item active">
 						<a class="nav-link" href="#gejala">Gejala</a>
 					</li>
-					<li class="nav-item">
+					<li class="nav-item active">
 						<a class="nav-link" href="#kasus-daerah">Data Provinsi</a>
 					</li>
-					<li class="nav-item">
+					<li class="nav-item active">
 						<a class="nav-link" href="#grafik-pertumbuhan">Grafik Pertumbuhan</a>
 					</li>
-					<li class="nav-item">
+					<li class="nav-item active">
 						<a class="nav-link" href="#peta-penyebaran">Peta Penyebaran</a>
 					</li>
 				</ul>
@@ -56,7 +56,7 @@
 						<p class="pl-3">Jangan risau dan jangan takut, karena ada cara mengurangi penyebarang virusnya apa saja itu langsung cek skuy</p>
 						<ol>
 							<li>Tetap dirumah, keluar rumah jikalau penting saja</li>
-							<li>Keluar rumah memakali masker</li>
+							<li>Keluar rumah memakai masker</li>
 							<li>Sering sering cuci tangan</li>
 							<li>Kurangi menyentuh benda yang bukan milik kita</li>
 						</ol>
@@ -124,7 +124,7 @@
 		</section>
 		<section class="my-5" id="kasus-daerah">
 			<div class="container-fluid">
-				<h3 class="text-center">Table Kasus Covid-19 Per Provisi</h3>
+				<h3 class="text-center">Table Kasus Covid-19 Per Provinsi</h3>
 				<div class="row">
 					<div class="col-md-12">
 						<div class="table-responsive">
@@ -179,9 +179,13 @@
 			</div>
 		</section>
 		
+		<section id="laporan">
+			
+		</section>
+
 		<footer class="footer bg-dark">
       <div class="container py-3">
-        <p class="text-light text-center">Copyright &copy; Ma's Irfani <?php echo date('Y') ?></p>
+        <p class="text-light text-center">STAY SAVE AT HOME | Copyright &copy; Ma's Irfani <?php echo date('Y') ?></p>
       </div>
     </footer>
 
