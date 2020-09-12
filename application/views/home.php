@@ -182,20 +182,23 @@
 		<section id="laporan" class="mb-5">
 			<div class="container-fluid">
 				<h3>Form Laporan Kasus Covid-19</h3>
+				<?php if (!empty($this->session->flashdata('isi_pesan'))): ?>
+					<p class="alert alert-<?php echo $this->session->flashdata('tipe') ?>"><?php echo $this->session->flashdata('isi_pesan') ?></p>
+				<?php endif ?>
 				<div class="row">
 					<div class="col-md-6">
-						<form action="" method="POST" accept-charset="utf-8">
+						<form action="page/create_laporan" method="POST" accept-charset="utf-8">
 							<div class="form-group">
 								<label>Email</label>
-								<input type="text" class="form-control" placeholder="Masukkan Email Anda..." required="">
+								<input type="email" class="form-control" placeholder="Masukkan Email Anda..." required="" name="email">
 							</div>
 							<div class="form-group">
 								<label>Nama</label>
-								<input type="text" class="form-control" placeholder="Masukkan Nama Anda..." required="">
+								<input type="text" class="form-control" placeholder="Masukkan Nama Anda..." required="" name="nama">
 							</div>
 							<div class="form-group">
 								<label>Keterangan Laporan</label>
-								<textarea name="" placeholder="Masukkan Keterangan Laporan Anda" class="form-control" rows="5"></textarea>
+								<textarea name="keterangan" placeholder="Masukkan Keterangan Laporan Anda" class="form-control" rows="5"></textarea>
 							</div>
 							<div class="form-group">
 								<button class="btn btn-info float-right">submit</button>

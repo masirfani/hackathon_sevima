@@ -3,6 +3,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Page extends CI_Controller {
 
+	public function __construct()
+	{
+		parent::__construct();
+		$this->load->model('crud_model','crud');
+	}
+
 	public function index(){
 		$harian = $this->request_curl("https://services5.arcgis.com/VS6HdKS0VfIhv8Ct/arcgis/rest/services/COVID19_Indonesia_per_Provinsi/FeatureServer/0/query?where=1%3D1&outFields=Kasus_Posi,Kasus_Semb,Kasus_Meni,Provinsi,FID&returnGeometry=false&outSR=4326&f=json");
 		$data['data_corona'] = $harian;
@@ -28,6 +34,27 @@ class Page extends CI_Controller {
 		$respon = curl_exec($data);
 		return json_decode($respon);
 		curl_close($data);
+	}
+
+	function create_laporan(){
+		$tanggal  = date('Y-m-d H:i:s');
+		$data = array(
+			'id_laporan' => NULL,
+			'email' => $this->input->post('email'),
+			'nama' => $this->input->post('nama'),
+			'keterangan' => $this->input->post('keterangan'),
+			'create_at' => $tanggal,
+			'update_at' => $tanggal
+		);
+		if ($this->crud->create("laporan",$data)) {
+			$this->session->set_flashdata('isi_pesan', 'Berhasil Kirim Laporan');
+			$this->session->set_flashdata('tipe_pesan', 'success');
+			redirect('page/index','refresh');
+		}else{
+			$this->session->set_flashdata('isi_pesan', 'Gagal Kirim Laporan');
+			$this->session->set_flashdata('tipe_pesan', 'success');
+			redirect('page/index','refresh');
+		}
 	}
 
 }
