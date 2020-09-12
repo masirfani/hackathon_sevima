@@ -6,6 +6,7 @@
 		<title>Document</title>
 		<link rel="stylesheet" href="<?php echo base_url("assets/bootstrap_4/css/bootstrap.min.css") ?>">
 		<link rel="stylesheet" href="//cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css">
+		<link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.1/dist/leaflet.css" integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ==" crossorigin=""/>
 	</head>
 	<body>
 		<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
@@ -105,6 +106,29 @@
 				
 			</div>
 		</section>
+		<section class="bg-dark text-white my-5">
+			<div class="container">
+				<div class="row py-5">
+					<div class="col-md-6 text-center">
+						<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRNceV7UsgE4qR8YVWCY_LHcHqBr6BHzygcNA&usqp=CAU" alt="" class="img-fuild rounded border border-light">
+					</div>
+					<div class="col-md-6">
+						<h3>Gejala Covid-19</h3>
+						<p class="pl-2">Waspadai gejala gejala Covid-19</p>
+						<ul>
+							<li>Demam tinggi</li>
+							<li>Batuk dan pilek</li>
+							<li>Berkurangnya kemampuan indera penciuman</li>
+							<li>Berkurangnya kemampuan indera pengecap/perasa</li>
+							<li>Sesak nafas</li>
+							<li>Sakit Tenggorokan</li>
+							<li>Mata Merah</li>
+							<li>Lelah</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</section>
 		<section>
 			<div class="container-fluid">
 				<h3 class="text-center">Table Kasus Covid-19 Per Provisi</h3>
@@ -157,6 +181,8 @@
 		<script src="<?php echo base_url("assets/bootstrap_4/js/bootstrap.min.js") ?>"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
 		<script src="//cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+		<script src="https://unpkg.com/leaflet@1.3.1/dist/leaflet.js" integrity="sha512-/Nsx9X4HebavoBvEBuyp3I7od5tA0UzAxs+j83KgC8PU0kgB4XiK4Lfe4y4cgBtaRJQEIFCW+oC506aPT2L1zw==" crossorigin=""></script>
+		
 		<script>
 		$(document).ready( function () {
 		    $('#myTable').DataTable();
