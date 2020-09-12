@@ -6,7 +6,6 @@
 		<title>Document</title>
 		<link rel="stylesheet" href="<?php echo base_url("assets/bootstrap_4/css/bootstrap.min.css") ?>">
 		<link rel="stylesheet" href="//cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css">
-		<link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.1/dist/leaflet.css" integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ==" crossorigin=""/>
 	</head>
 	<body>
 		<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
@@ -15,35 +14,29 @@
 			<span class="navbar-toggler-icon"></span>
 			</button>
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
-				<ul class="navbar-nav mr-auto">
+				<ul class="navbar-nav mx-auto">
 					<li class="nav-item active">
-						<a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+						<a class="nav-link" href="#home">Home <span class="sr-only">(current)</span></a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="#">Link</a>
-					</li>
-					<li class="nav-item dropdown">
-						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-							Dropdown
-						</a>
-						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-							<a class="dropdown-item" href="#">Action</a>
-							<a class="dropdown-item" href="#">Another action</a>
-							<div class="dropdown-divider"></div>
-							<a class="dropdown-item" href="#">Something else here</a>
-						</div>
+						<a class="nav-link" href="#kasus">Jumlah Kasus</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link disabled" href="#">Disabled</a>
+						<a class="nav-link" href="#gejala">Gejala</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#kasus-daerah">Data Provinsi</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#grafik-pertumbuhan">Grafik Pertumbuhan</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#peta-penyebaran">Peta Penyebaran</a>
 					</li>
 				</ul>
-				<form class="form-inline my-2 my-lg-0">
-					<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-					<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-				</form>
 			</div>
 		</nav>
-		<section class="bg-dark text-light p-3 mt-5">
+		<section class="bg-dark text-light p-3 mt-5" id="home">
 			<div class="container">
 				<div class="row">
 					<div class="col-md-8">
@@ -74,7 +67,7 @@
 				</div>
 			</div>
 		</section>
-		<section class="my-5">
+		<section class="my-5" id="kasus">
 			<div class="container-fluid">
 				<h3 class="text-center mb-3 text-grey">Data Jumlah Covid-19</h3>
 				<div class="row">
@@ -106,7 +99,7 @@
 				
 			</div>
 		</section>
-		<section class="bg-dark text-white my-5">
+		<section class="bg-dark text-white my-5" id="gejala">
 			<div class="container">
 				<div class="row py-5">
 					<div class="col-md-6 text-center">
@@ -129,7 +122,7 @@
 				</div>
 			</div>
 		</section>
-		<section>
+		<section class="my-5" id="kasus-daerah">
 			<div class="container-fluid">
 				<h3 class="text-center">Table Kasus Covid-19 Per Provisi</h3>
 				<div class="row">
@@ -165,15 +158,32 @@
 				</div>
 			</div>
 		</section>
-
-		<!-- <div class="row">
-					<div class="col-md-6">
+		<section id="grafik-pertumbuhan">
+			<div class="container-fluid my-5">
+				<div class="row">
+					<div class="col-md-12">
+						<h3>Grafik pertumbuhan Covid-19 </h3>
 						<canvas id="myChart"></canvas>
 					</div>
-				</div> -->
-		<!-- <pre>
-			<?php var_dump($statistik[0]) ?>
-		</pre> -->
+				</div>
+			</div>
+		</section>
+		<section id="peta-penyebaran">
+			<div class="container-fluid my-5">
+				<div class="row">
+					<div class="col-md-12">
+						<h3>Peta penyebaran Covid-19 </h3>
+						<iframe src="https://www.google.com/maps/d/embed?mid=1U1FGDVD49lpMU4Nwg0hNrtMfPCBRhbbW" height="480" class="w-100"></iframe>
+					</div>
+				</div>
+			</div>
+		</section>
+		
+		<footer class="footer bg-dark">
+      <div class="container py-3">
+        <p class="text-light text-center">Copyright &copy; Ma's Irfani <?php echo date('Y') ?></p>
+      </div>
+    </footer>
 
 
 		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -181,8 +191,7 @@
 		<script src="<?php echo base_url("assets/bootstrap_4/js/bootstrap.min.js") ?>"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
 		<script src="//cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
-		<script src="https://unpkg.com/leaflet@1.3.1/dist/leaflet.js" integrity="sha512-/Nsx9X4HebavoBvEBuyp3I7od5tA0UzAxs+j83KgC8PU0kgB4XiK4Lfe4y4cgBtaRJQEIFCW+oC506aPT2L1zw==" crossorigin=""></script>
-		
+		<script src="path/to/smooth-scroll.polyfills.min.js"></script>
 		<script>
 		$(document).ready( function () {
 		    $('#myTable').DataTable();
@@ -193,16 +202,16 @@
 		    data: {
 		        labels: [
 		        	<?php  
-		        		foreach ($statistik as $see) {
+		        		foreach ($provinsi as $see) {
 		        			echo $see->attributes->Hari_ke.",";
 		        		}
 		        	?>
 		        ],
 		        datasets: [{
-		            label: '# of Votes',
+		            label: '# total kasus',
 		            data: [
 		            	<?php  
-				        		foreach ($statistik as $see) {
+				        		foreach ($provinsi as $see) {
 				        			echo $see->attributes->Jumlah_Pasien_Sembuh.",";
 				        		}
 				        	?>

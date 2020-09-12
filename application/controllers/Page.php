@@ -15,8 +15,11 @@ class Page extends CI_Controller {
 			$data['total_meninggal'] += $see->attributes->Kasus_Meni;
 		endforeach;
 
-		$statistik = $this->request_curl("https://services5.arcgis.com/VS6HdKS0VfIhv8Ct/arcgis/rest/services/Statistik_Perkembangan_COVID19_Indonesia/FeatureServer/0/query?where=1%3D1&outFields=Hari_ke,Tanggal,Jumlah_Kasus_Kumulatif,Jumlah_Pasien_Sembuh,Jumlah_Pasien_Meninggal&returnGeometry=false&outSR=4326&f=json");
-		$data['statistik'] = $statistik->features;
+		$statistik = $this->request_curl("https://services5.arcgis.com/VS6HdKS0VfIhv8Ct/arcgis/rest/services/Statistik_Perkembangan_COVID19_Indonesia/FeatureServer/0/query?where=1%3D1&outFields=Jumlah_Kasus_Kumulatif,Hari_ke,Tanggal,Jumlah_Pasien_Sembuh,Jumlah_Pasien_Meninggal&returnGeometry=false&orderByFields=Hari_ke%20ASC&outSR=4326&f=json");
+		$data['provinsi'] = $statistik->features;
+
+		$detail_daerah = $this->request_curl("https://services5.arcgis.com/VS6HdKS0VfIhv8Ct/arcgis/rest/services/Kecamatan_Rawan_COVID19/FeatureServer/0/query?where=1%3D1&outFields=FID,kecamatan,kabupaten,provinsi,kategori&returnGeometry=false&outSR=4326&f=json");
+		$data['detail_daerah'] = $detail_daerah->features;
 		$this->load->view('home', $data);
 
 	}
