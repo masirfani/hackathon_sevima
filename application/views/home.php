@@ -5,9 +5,10 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>Document</title>
 		<link rel="stylesheet" href="<?php echo base_url("assets/bootstrap_4/css/bootstrap.min.css") ?>">
+		<link rel="stylesheet" href="//cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css">
 	</head>
 	<body>
-		<nav class="navbar navbar-expand-lg navbar-light bg-light">
+		<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
 			<a class="navbar-brand" href="#">FYI Covid-19</a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
@@ -41,11 +42,42 @@
 				</form>
 			</div>
 		</nav>
+		<section class="bg-dark text-light p-3 mt-5">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-8">
+						<h3 class="h3">
+							Hai, Selamat datang di website For Your Information about Covid-19
+						</h3>
+					</div>
+					<div class="w-100 m-2"></div>
+					<div class="col-md-6">
+						<p>Apasih Covid-19 itu?</p>
+						<p class="pl-3">Masih belum tau ya?, Menurut kabar yang beredar Covid-19 adalah sebuah penyakit menular yang disebabkan oleh virus <b>Corona.</b> </p>
+						<p>Haaaaaa?, apalagi itu virus corona?</p>
+						<p class="pl-3">begini, jadi virus corona itu merupakan suatu kelompok virus yang dapat menyebabkan penyakit pada hewan atau manusia, dan beberapa data menyebutkan bahwa yang diserang itu saluran pernafasan lhoooo</p>
+						<p>Owh begitu, ya sudahlah mana mungkin virus berani menyerangku yang kuat ini </p>
+						<p class="pl-3">Eitsss, jangan salah penyebaran virus ini sangat mudah sekali, dikarenakan virus menyebar melalui percikan air yang muncul dari mulut atau hidung seseorang yang terinfeksi.</p>
+						<p>Ih kok gitu sih, udah hidup kek gini malah ada virus begini:(</p>
+						<p class="pl-3">Jangan risau dan jangan takut, karena ada cara mengurangi penyebarang virusnya apa saja itu langsung cek skuy</p>
+						<ol>
+							<li>Tetap dirumah, keluar rumah jikalau penting saja</li>
+							<li>Keluar rumah memakali masker</li>
+							<li>Sering sering cuci tangan</li>
+							<li>Kurangi menyentuh benda yang bukan milik kita</li>
+						</ol>
+					</div>
+					<div class="col-md-6">
+						<img src="https://fk.unair.ac.id/wp-content/uploads/2020/02/virus-corona-740x450.jpg" alt="" class="img-fluid rounded border border-light">
+					</div>
+				</div>
+			</div>
+		</section>
 		<section class="my-5">
 			<div class="container-fluid">
-				<h1 class="text-center mb-3 text-grey">Data Jumlah Covid-19</h1>
+				<h3 class="text-center mb-3 text-grey">Data Jumlah Covid-19</h3>
 				<div class="row">
-					<div class="col-md-4">
+					<div class="col-md-4 col-4">
 						<div class="card text-white mx-auto bg-danger mb-3" style="max-width: 18rem;">
 						  <div class="card-header">Jumlah Orang Positif</div>
 						  <div class="card-body">
@@ -53,7 +85,7 @@
 						  </div>
 						</div>
 					</div>
-					<div class="col-md-4">
+					<div class="col-md-4 col-4">
 						<div class="card text-white mx-auto bg-success mb-3" style="max-width: 18rem;">
 						  <div class="card-header">Jumlah Orang Sembuh</div>
 						  <div class="card-body">
@@ -61,7 +93,7 @@
 						  </div>
 						</div>
 					</div>
-					<div class="col-md-4">
+					<div class="col-md-4 col-4">
 						<div class="card text-white mx-auto bg-dark mb-3" style="max-width: 18rem;">
 						  <div class="card-header">Jumlah Orang Meninggal</div>
 						  <div class="card-body">
@@ -75,10 +107,11 @@
 		</section>
 		<section>
 			<div class="container-fluid">
+				<h3 class="text-center">Table Kasus Covid-19 Per Provisi</h3>
 				<div class="row">
 					<div class="col-md-12">
 						<div class="table-responsive">
-							<table class="table">
+							<table class="table" id="myTable">
 								<thead>
 									<tr>
 										<td>No</td>
@@ -114,16 +147,20 @@
 						<canvas id="myChart"></canvas>
 					</div>
 				</div> -->
-		<pre>
+		<!-- <pre>
 			<?php var_dump($statistik[0]) ?>
-		</pre>
+		</pre> -->
 
 
 		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 		<script src="<?php echo base_url("assets/bootstrap_4/js/bootstrap.min.js") ?>"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
+		<script src="//cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
 		<script>
+		$(document).ready( function () {
+		    $('#myTable').DataTable();
+		} );
 		var ctx = document.getElementById('myChart').getContext('2d');
 		var myChart = new Chart(ctx, {
 		    type: 'line',
