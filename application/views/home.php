@@ -179,8 +179,34 @@
 			</div>
 		</section>
 		
-		<section id="laporan">
-			
+		<section id="laporan" class="mb-5">
+			<div class="container-fluid">
+				<h3>Form Laporan Kasus Covid-19</h3>
+				<div class="row">
+					<div class="col-md-6">
+						<form action="" method="POST" accept-charset="utf-8">
+							<div class="form-group">
+								<label>Email</label>
+								<input type="text" class="form-control" placeholder="Masukkan Email Anda..." required="">
+							</div>
+							<div class="form-group">
+								<label>Nama</label>
+								<input type="text" class="form-control" placeholder="Masukkan Nama Anda..." required="">
+							</div>
+							<div class="form-group">
+								<label>Keterangan Laporan</label>
+								<textarea name="" placeholder="Masukkan Keterangan Laporan Anda" class="form-control" rows="5"></textarea>
+							</div>
+							<div class="form-group">
+								<button class="btn btn-info float-right">submit</button>
+							</div>
+						</form>
+					</div>
+					<div class="col-md-6">
+						<img src="https://advokasi.aji.or.id/upload/208902_577015275650770_215744490_n.jpg" alt="" class="img-fluid rounded border border-dark mx-auto">
+					</div>
+				</div>
+			</div>
 		</section>
 
 		<footer class="footer bg-dark">
