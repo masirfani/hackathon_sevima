@@ -179,7 +179,7 @@
 			</div>
 		</section>
 		
-		<section id="laporan" class="mb-5">
+		<section class="mb-5">
 			<div class="container-fluid">
 				<h3>Form Laporan Kasus Covid-19</h3>
 				<?php if (!empty($this->session->flashdata('isi_pesan'))): ?>
@@ -207,6 +207,41 @@
 					</div>
 					<div class="col-md-6">
 						<img src="https://advokasi.aji.or.id/upload/208902_577015275650770_215744490_n.jpg" alt="" class="img-fluid rounded border border-dark mx-auto">
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="my-5" id="kasus-daerah">
+			<div class="container-fluid">
+				<h3 class="text-center">Data Laporan</h3>
+				<div class="row">
+					<div class="col-md-12">
+						<div class="table-responsive">
+							<table class="table" id="myTable">
+								<thead>
+									<tr>
+										<td>No</td>
+										<td>Nama</td>
+										<td>Email</td>
+										<td>Keterangan</td>
+									</tr>
+								</thead>
+								<tbody>
+									<?php  
+										$nomor = 1;
+										foreach ($laporan as $see):
+									?>
+									<tr>
+										<td><?php echo $nomor++ ?></td>
+										<td><?php echo $see->nama ?></td>
+										<td class="text-danger"><?php echo $see->email ?></td>
+										<td class="text-info"><?php echo $see->keterangan ?></td>
+									</tr>
+									<?php endforeach ?>
+								</tbody>
+							</table>
+						</div>
 					</div>
 				</div>
 			</div>

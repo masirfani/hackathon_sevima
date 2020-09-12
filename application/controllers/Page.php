@@ -23,6 +23,8 @@ class Page extends CI_Controller {
 
 		$statistik = $this->request_curl("https://services5.arcgis.com/VS6HdKS0VfIhv8Ct/arcgis/rest/services/Statistik_Perkembangan_COVID19_Indonesia/FeatureServer/0/query?where=1%3D1&outFields=Jumlah_Kasus_Kumulatif,Hari_ke,Tanggal,Jumlah_Pasien_Sembuh,Jumlah_Pasien_Meninggal&returnGeometry=false&orderByFields=Hari_ke%20ASC&outSR=4326&f=json");
 		$data['provinsi'] = $statistik->features;
+
+		$data['laporan'] = $this->crud->read("laporan");
 		$this->load->view('home', $data);
 
 	}
